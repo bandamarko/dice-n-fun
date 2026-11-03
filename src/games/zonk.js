@@ -32,7 +32,43 @@ function canEnter(sheet, player, entry) {
 }
 
 function applyEntry(sheet, player, entry) {
-  // TODO: return { sheet: newSheet, turnEnded: true or false }
+  if (entry.type === "plus") {
+    return {
+        sheet: {
+            ...sheet,
+            turn: {
+                subtotal: sheet.turn.subtotal + entry.points,
+                plusUsed: true,
+            },
+        },
+        turnEnded: false,
+    };
+  }
+  if (entry.type === "bank") {
+    return {
+      sheet: {
+        ...sheet,
+        banked: sheet.banked.map((turns, i) =>
+          i === player ? [...turns, sheet.turn.subtotal + entry.points] : turns
+        ),
+        turn: { subtotal: 0, plusUsed: false },
+      },
+      turnEnded: true,
+    };
+  }
+  if (entry.type === "zonk") {
+    return {
+      sheet: {
+        ...sheet,
+        banked: sheet.banked.map((turns, i) =>
+          i === player ? [...turns, 0] : turns
+        ),
+        turn: { subtotal: 0, plusUsed: false },
+      },
+      turnEnded: true,
+    };
+  }
+  throw new Error(`Unknown entry type: ${entry.type}`);
 }
 
 function computeTotals(sheet) {
