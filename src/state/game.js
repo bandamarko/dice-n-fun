@@ -1,11 +1,13 @@
 import { getGame } from "../games/index.js";
 
 export function createGame(gameId, players, options = {}) {
-  if (players.length === 0) {
-    throw new Error("A game needs at least one player");
-  }
-
   const definition = getGame(gameId);
+
+  if (players.length < definition.minPlayers || players.length > definition.maxPlayers) {
+    throw new Error(
+      `${definition.name} needs ${definition.minPlayers}–${definition.maxPlayers} players`
+    );
+  }
 
   return {
     gameId,

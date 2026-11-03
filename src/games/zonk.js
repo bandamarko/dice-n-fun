@@ -82,6 +82,10 @@ function isFinished(sheet) {
 export const zonk = {
   id: "zonk",
   name: "Zonk",
+  minPlayers: 1,
+  maxPlayers: 8,
+  dice: 6,
+  summary: "Throw dice, bank points, be the first to reach the target.",
   defaultOptions,
   createSheet,
   canEnter,
