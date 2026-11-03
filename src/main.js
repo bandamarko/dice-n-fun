@@ -1,11 +1,12 @@
-import { createGame, playMove } from "./state/game.js";
+import { createGame } from "./state/game.js";
+import { createHistory, play } from "./state/history.js";
+import { saveGame, loadGame } from "./storage/storage.js";
 
-let game = createGame("zonk", ["Marko", "Ana"]);
-console.log("starts:", game.currentPlayer);
-
-game = playMove(game, { type: "plus", points: 300 });
-console.log("after plus:", game.currentPlayer);   // same player
-
-game = playMove(game, { type: "bank", points: 100 });
-console.log("after bank:", game.currentPlayer);   // the other player
-console.log(game.sheet.banked);
+let h = loadGame();
+if (h) {
+  console.log("loaded:", h.current.sheet.banked);
+} else {
+  h = play(createHistory(createGame("zonk", ["Marko", "Ana"])), { type: "bank", points: 500 });
+  saveGame(h);
+  console.log("new game saved");
+}
