@@ -1,15 +1,11 @@
-import { zonk } from "./games/zonk.js";
+import { createGame, playMove } from "./state/game.js";
 
-import { createGame } from "./state/game.js";
-console.log(createGame("zonk", ["Marko", "Ana", "Luka"]));
+let game = createGame("zonk", ["Marko", "Ana"]);
+console.log("starts:", game.currentPlayer);
 
-let sheet = zonk.createSheet(["Marko", "Ana"]);
-const before = sheet;
+game = playMove(game, { type: "plus", points: 300 });
+console.log("after plus:", game.currentPlayer);   // same player
 
-sheet = zonk.applyEntry(sheet, 0, { type: "plus", points: 300 }).sheet;
-sheet = zonk.applyEntry(sheet, 0, { type: "bank", points: 150 }).sheet;
-sheet = zonk.applyEntry(sheet, 1, { type: "zonk" }).sheet;
-
-console.log(zonk.computeTotals(sheet));   // expect [450, 0]
-console.log(zonk.computeTotals(before));  // expect [0, 0]
-console.log(sheet.banked);                // expect [[450], [0]]
+game = playMove(game, { type: "bank", points: 100 });
+console.log("after bank:", game.currentPlayer);   // the other player
+console.log(game.sheet.banked);
