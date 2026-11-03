@@ -1,5 +1,8 @@
 import { zonk } from "./games/zonk.js";
 
+import { createGame } from "./state/game.js";
+console.log(createGame("zonk", ["Marko", "Ana", "Luka"]));
+
 let sheet = zonk.createSheet(["Marko", "Ana"]);
 const before = sheet;
 
