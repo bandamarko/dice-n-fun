@@ -46,6 +46,11 @@ export function home() {
     render();
 }
 
+// For on-screen back arrows: behaves exactly like the phone's back button
+export function back() {
+    history.back();
+}
+
 export function setBackHandler(handler) {
     backHandler = handler;
     sync();

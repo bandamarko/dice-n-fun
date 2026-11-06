@@ -1,8 +1,11 @@
-// main.js: temporary placeholder screens to try the router; the real screens replace them
+// main.js: connects the screens to the router and starts the app
 import "./style.css";
-import { startTheme, toggleTheme } from "./ui/theme.js";
+import { startTheme } from "./ui/theme.js";
 import { defineScreens, startRouter, go, home, setBackHandler, openOverlay } from "./ui/router.js";
+import { showWelcome } from "./ui/welcome.js";
+import { showPicker } from "./ui/picker.js";
 
+// --- Temporary placeholders until the real screens exist ---
 function button(label, onClick) {
   const b = document.createElement("button");
   b.textContent = label;
@@ -16,15 +19,9 @@ function title(text) {
   return h;
 }
 
-defineScreens({
-  welcome: (root) => root.append(
-    title("Welcome"),
-    button("Play", () => go("picker")),
-    button("Switch theme", () => toggleTheme()),
-  ),
-  picker: (root) => root.append(title("Pick a game"), button("Yamb", () => go("setup", { gameId: "yamb" }))),
-  setup: (root, params) => root.append(title(`Setup: ${params.gameId}`), button("Start", () => go("sheet", {}, { fresh: true }))),
-  sheet: (root) => {
+const placeholders = {
+  setup: (root, params) => root.append(title(`Setup: ${params.gameId}`), button("Start", () => go("game", {}, { fresh: true }))),
+  game: (root) => {
     root.append(title("Scoresheet"));
     setBackHandler(() => {
       const popup = document.createElement("div");
@@ -37,6 +34,13 @@ defineScreens({
       root.append(popup);
     });
   },
+};
+// ------------------------------------------------------------
+
+defineScreens({
+  welcome: showWelcome,
+  picker: showPicker,
+  ...placeholders,
 });
 
 startTheme();

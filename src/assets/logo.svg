@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="logo-die" viewBox="0 0 72 62" aria-hidden="true">
+  <!-- Sticker-logo die. The fill/stroke attributes are the light colors, so the file
+       previews correctly on its own; in the app, CSS classes (style.css) override them per theme. -->
+  <defs>
+    <clipPath id="logo-die-clip"><path d="M36 39.5Q36 37 37.77 35.23L41.23 31.77Q43 30 45.5 30L62.5 30Q66 30 66 33.5L66 50.5Q66 53 64.23 54.77L60.77 58.23Q59 60 56.5 60L39.5 60Q36 60 36 56.5Z"/></clipPath>
+  </defs>
+  <path class="die-trail" d="M4 12Q22 -6 36 26" fill="none" stroke="#9CC3E6" stroke-width="3.5" stroke-dasharray="0 8" stroke-linecap="round"/>
+  <g clip-path="url(#logo-die-clip)">
+    <polygon class="die-top" points="36,37 43,30 66,30 59,37" fill="#5B9BD9"/>
+    <polygon class="die-side" points="59,37 66,30 66,53 59,60" fill="#155A9E"/>
+    <rect class="die-front" x="36" y="37" width="23" height="23" fill="#1F6FC2"/>
+    <path class="die-edge-top" d="M36 37H59" stroke="#3D85CD" stroke-width="3"/>
+    <path class="die-edge-side" d="M59 37V60" stroke="#1A64B0" stroke-width="3"/>
+    <path class="die-edge-corner" d="M59 37L66 30" stroke="#387ABB" stroke-width="3.2"/>
+    <path class="die-top" d="M36.9 36.1L57.4 36.1Q58.5 36.1 59.28 35.32L64.6 30L43 30Z" fill="#5B9BD9"/>
+    <path class="die-side" d="M60.68 36.72L66 31.4L66 53L59.9 59.1L59.9 38.6Q59.9 37.5 60.68 36.72Z" fill="#155A9E"/>
+    <path class="die-front" d="M36 38.4L56.2 38.4Q57.6 38.4 57.6 39.8L57.6 60L36 60Z" fill="#1F6FC2"/>
+    <path class="die-corner" d="M57.6 38.4Q57.46 37.17 58.5 36.1Q59.62 36.38 59.9 37.5Q58.83 38.54 57.6 38.4Z" fill="#3077BE" stroke="#3077BE" stroke-width="0.5" stroke-linejoin="round"/>
+    <g class="die-pip" fill="#FFFFFF">
+      <ellipse cx="44.4" cy="34.3" rx="2.3" ry="1.1"/>
+      <ellipse cx="57.6" cy="31.9" rx="2.3" ry="1.1"/>
+      <ellipse cx="61.5" cy="41.2" rx="1" ry="2.1"/>
+      <ellipse cx="62.9" cy="45.6" rx="1" ry="2.1"/>
+      <ellipse cx="64.3" cy="50" rx="1" ry="2.1"/>
+      <circle cx="47" cy="49" r="3.6"/>
+    </g>
+  </g>
+  <path class="die-sparkle" d="M64 6L66 12L72 14L66 16L64 22L62 16L56 14L62 12Z" fill="#FFC24B"/>
+</svg>

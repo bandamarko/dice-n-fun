@@ -77,7 +77,7 @@ export function columnSums(cells) {
 
 // ---------- The game ----------
 
-export function createYambVariant({ id, name, summary, columns }) {
+export function createYambVariant({ id, name, summary, rules, columns }) {
   function createSheet(players) {
     const emptyGrid = () =>
       Object.fromEntries(columns.map((column) => [column, Array(ROWS.length).fill(null)]));
@@ -137,7 +137,7 @@ export function createYambVariant({ id, name, summary, columns }) {
   }
 
   return {
-    id, name, summary,
+    id, name, summary, rules,
     minPlayers: 2, maxPlayers: 8, dice: 6,
     defaultOptions: {},
     columns,
@@ -149,6 +149,15 @@ export const yamb = createYambVariant({
   id: "yamb",
   name: "Yamb",
   summary: "Fill a 9-column scoresheet, one cell per turn, for the highest total.",
+  rules: {
+    extra: "3 throws, best 5 count",
+    bullets: [
+      "One cell per turn, or cross one out",
+      "Each of the 9 columns has its own order",
+      "60+ in the top section earns +30",
+      "Announce a row: the next player owes it as a Tip",
+    ],
+  },
   columns: ["down", "free", "up", "announce", "hand", "tip", "middle", "mandatory", "maximum"],
 });
 
@@ -156,5 +165,10 @@ export const flashYamb = createYambVariant({
   id: "flash-yamb",
   name: "Flash Yamb",
   summary: "Yamb with six columns, for a quicker game.",
+  rules: {
+    extra: "3 throws",
+    bullets: ["Same rows and scoring as Yamb", "Only 6 columns: Down, Free, Up, Announce, Hand, Tip"],
+    tip: "Tip: try it with 5 dice",
+  },
   columns: ["down", "free", "up", "announce", "hand", "tip"],
 });

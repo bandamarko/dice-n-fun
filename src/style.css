@@ -65,3 +65,540 @@ h1, h2, h3 {
   min-height: 100dvh;
   margin: 0 auto;
 }
+
+/* ---------- Shared buttons ---------- */
+
+.button-primary,
+.button-outline {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.button-primary {
+  border: none;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.button-outline {
+  border: 1.5px solid var(--accent);
+  background: var(--card);
+  color: var(--accent-text);
+}
+
+:root[data-theme="dark"] .button-outline {
+  background: var(--bg);
+}
+
+/* ---------- Welcome ---------- */
+
+.welcome {
+  position: relative;
+  min-height: 100dvh;
+  padding: 72px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.welcome-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  padding-top: 96px;
+}
+
+.welcome-tagline {
+  margin: 0;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.welcome-continue {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.welcome-continue-line {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--on-accent-soft);
+}
+
+/* Sticker logo */
+.logo {
+  margin: 0;
+  transform: rotate(-3deg);
+  background: var(--card);
+  border: 2.5px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 7px 7px 0 var(--accent);
+  padding: 26px 24px 12px 22px;
+}
+
+.logo-text {
+  display: flex;
+  align-items: flex-end;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--ink);
+}
+
+.logo-n { color: var(--accent-text); }
+.logo-die { width: 65px; height: 56px; margin: 0 -5px 8px -26px; }
+.die-trail { stroke: var(--die-trail); }
+.die-top { fill: var(--die-top); }
+.die-side { fill: var(--die-side); }
+.die-front { fill: var(--die-front); }
+.die-edge-top { stroke: var(--die-edge-top); }
+.die-edge-side { stroke: var(--die-edge-side); }
+.die-edge-corner { stroke: var(--die-edge-corner); }
+.die-corner { fill: var(--die-corner); stroke: var(--die-corner); }
+.die-pip { fill: var(--die-pip); }
+.die-sparkle { fill: #FFC24B; }
+
+:root,
+:root[data-theme="light"] {
+  --on-accent-soft: #DCEBFA;
+  --die-trail: #9CC3E6;
+  --die-top: #5B9BD9;
+  --die-side: #155A9E;
+  --die-front: #1F6FC2;
+  --die-edge-top: #3D85CD;
+  --die-edge-side: #1A64B0;
+  --die-edge-corner: #387ABB;
+  --die-corner: #3077BE;
+  --die-pip: #FFFFFF;
+}
+
+:root[data-theme="dark"] {
+  --on-accent-soft: #0E3254;
+  --die-trail: #3A5A7A;
+  --die-top: #9CC8F0;
+  --die-side: #2F78BC;
+  --die-front: #4A9EEB;
+  --die-edge-top: #73B3ED;
+  --die-edge-side: #3C8BD3;
+  --die-edge-corner: #65A0D6;
+  --die-corner: #5C9FDD;
+  --die-pip: #0B1824;
+}
+
+/* Day/night switch: one accent circle (::before) slides between the sun and the moon */
+.theme-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 76px;
+  height: 40px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1.5px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.theme-switch::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(0, -50%);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+:root[data-theme="dark"] .theme-switch::before {
+  transform: translate(35px, -50%);
+}
+
+.switch-knob {
+  position: relative; /* above the sliding circle */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.switch-knob svg {
+  width: 18px;
+  height: 18px;
+}
+
+:root:not([data-theme="dark"]) .switch-sun,
+:root[data-theme="dark"] .switch-moon {
+  color: var(--on-accent);
+}
+
+/* ---------- App icon (headers, game menu) ---------- */
+
+.app-icon { width: 40px; height: 40px; display: block; }
+.icon-tile { fill: var(--icon-tile); stroke: var(--icon-tile-border); }
+.icon-small-die { fill: var(--icon-small-die); fill-opacity: var(--icon-small-die-opacity); }
+.icon-top { fill: var(--icon-top); }
+.icon-side { fill: var(--icon-side); }
+.icon-front { fill: var(--icon-front); }
+.icon-edge-top { stroke: var(--icon-edge-top); }
+.icon-edge-side { stroke: var(--icon-edge-side); }
+.icon-edge-corner { stroke: var(--icon-edge-corner); }
+.icon-corner { fill: var(--icon-corner); stroke: var(--icon-corner); }
+.icon-pip { fill: var(--icon-pip); }
+
+:root,
+:root[data-theme="light"] {
+  --icon-tile: #1F6FC2;
+  --icon-tile-border: #1F6FC2;
+  --icon-small-die: #FFFFFF;
+  --icon-small-die-opacity: 0.75;
+  --icon-top: #CFE6F7;
+  --icon-side: #9CC3E6;
+  --icon-front: #FFFFFF;
+  --icon-edge-top: #E7F2FB;
+  --icon-edge-side: #CDE1F2;
+  --icon-edge-corner: #B5D4EE;
+  --icon-corner: #CEE3F4;
+  --icon-pip: #1F6FC2;
+  --rules-tip: #185FA5;
+  --rules-play-bg: #FFFFFF;
+  --rules-play-ink: #1F6FC2;
+}
+
+:root[data-theme="dark"] {
+  --icon-tile: #14273A;
+  --icon-tile-border: #2A4560;
+  --icon-small-die: #2F78BC;
+  --icon-small-die-opacity: 1;
+  --icon-top: #9CC8F0;
+  --icon-side: #2F78BC;
+  --icon-front: #4A9EEB;
+  --icon-edge-top: #73B3ED;
+  --icon-edge-side: #3C8BD3;
+  --icon-edge-corner: #65A0D6;
+  --icon-corner: #5C9FDD;
+  --icon-pip: #0B1824;
+  --rules-tip: #3A8DDB;
+  --rules-play-bg: #06192B;
+  --rules-play-ink: #E6F1FA;
+}
+
+/* Small line icons */
+.flip-icon, .back-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.flip-icon { width: 14px; height: 14px; }
+.back-icon { width: 24px; height: 24px; }
+.play-icon { width: 14px; height: 14px; fill: currentColor; }
+.bolt-icon { width: 0.85em; height: 0.85em; fill: #FFC24B; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+
+/* ---------- Screen header ---------- */
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.screen-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.header-logo { margin-left: auto; }
+
+.icon-button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ---------- Picker ---------- */
+
+.picker {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-list {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 16px;
+}
+
+.game-card { perspective: 1200px; display: grid; }
+
+/* Both faces sit in the same grid cell, so the card is as tall as its taller face:
+   front and back are always the same size */
+.game-card-inner {
+  display: grid;
+  min-height: 220px;
+  transition: transform 0.45s ease;
+  transform-style: preserve-3d;
+}
+
+.is-flipped .game-card-inner { transform: rotateY(180deg); }
+
+.game-card-face {
+  grid-area: 1 / 1;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backface-visibility: hidden;
+}
+
+.game-card-front { background: var(--card); }
+
+.game-card-back {
+  transform: rotateY(180deg);
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 16px 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card-inner { transition: none; }
+}
+
+.card-flip {
+  flex: 1;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-title, .card-rules-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.card-rules-title { font-size: 22px; gap: 6px; }
+
+.card-summary {
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--body);
+}
+
+.card-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.game-card-front .card-hint { margin-top: auto; padding-bottom: 6px; }
+.game-card-back .card-hint { color: var(--on-accent-soft); }
+
+.card-rules-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-facts { font-size: 13px; color: var(--on-accent-soft); }
+
+.card-rules {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.game-card-back .card-bottom { justify-content: flex-end; }
+
+.card-players { font-size: 14px; color: var(--muted); }
+
+.card-play {
+  height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.game-card-back .card-play {
+  background: var(--rules-play-bg);
+  color: var(--rules-play-ink);
+}
+
+.card-tip {
+  flex: 1;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rules-tip);
+  border-radius: 12px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- Theme fade ----------
+   Instead of animating every element, we animate the color variables themselves.
+   @property tells the browser each variable is a color (or a number), which makes it
+   animatable. Elements just use var(...) as always, so they all follow one smooth fade,
+   and inherited text can't lag behind or flash. Browsers without @property simply switch instantly. */
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #EAF4FB; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #0E2A3D; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #4A6578; }
+@property --body { syntax: "<color>"; inherits: true; initial-value: #2C4558; }
+@property --card { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
+@property --on-accent { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
+@property --accent-text { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
+@property --sum { syntax: "<color>"; inherits: true; initial-value: #CFE6F7; }
+@property --locked { syntax: "<color>"; inherits: true; initial-value: #D8E6F1; }
+@property --tint { syntax: "<color>"; inherits: true; initial-value: #F2F8FD; }
+@property --highlight { syntax: "<color>"; inherits: true; initial-value: #CFE6F7; }
+@property --panel-border { syntax: "<color>"; inherits: true; initial-value: #9CC3E6; }
+@property --danger { syntax: "<color>"; inherits: true; initial-value: #C0392B; }
+@property --on-danger { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
+@property --scrim { syntax: "<color>"; inherits: true; initial-value: rgba(14, 42, 61, 0.45); }
+@property --on-accent-soft { syntax: "<color>"; inherits: true; initial-value: #DCEBFA; }
+@property --die-trail { syntax: "<color>"; inherits: true; initial-value: #9CC3E6; }
+@property --die-top { syntax: "<color>"; inherits: true; initial-value: #5B9BD9; }
+@property --die-side { syntax: "<color>"; inherits: true; initial-value: #155A9E; }
+@property --die-front { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
+@property --die-edge-top { syntax: "<color>"; inherits: true; initial-value: #3D85CD; }
+@property --die-edge-side { syntax: "<color>"; inherits: true; initial-value: #1A64B0; }
+@property --die-edge-corner { syntax: "<color>"; inherits: true; initial-value: #387ABB; }
+@property --die-corner { syntax: "<color>"; inherits: true; initial-value: #3077BE; }
+@property --die-pip { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
+@property --icon-tile { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
+@property --icon-tile-border { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
+@property --icon-small-die { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
+@property --icon-top { syntax: "<color>"; inherits: true; initial-value: #CFE6F7; }
+@property --icon-side { syntax: "<color>"; inherits: true; initial-value: #9CC3E6; }
+@property --icon-front { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
+@property --icon-edge-top { syntax: "<color>"; inherits: true; initial-value: #E7F2FB; }
+@property --icon-edge-side { syntax: "<color>"; inherits: true; initial-value: #CDE1F2; }
+@property --icon-edge-corner { syntax: "<color>"; inherits: true; initial-value: #B5D4EE; }
+@property --icon-corner { syntax: "<color>"; inherits: true; initial-value: #CEE3F4; }
+@property --icon-pip { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
+@property --rules-tip { syntax: "<color>"; inherits: true; initial-value: #185FA5; }
+@property --rules-play-bg { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
+@property --rules-play-ink { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
+@property --icon-small-die-opacity { syntax: "<number>"; inherits: true; initial-value: 0.75; }
+
+:root {
+  transition:
+    --bg 0.3s ease,
+    --ink 0.3s ease,
+    --muted 0.3s ease,
+    --body 0.3s ease,
+    --card 0.3s ease,
+    --accent 0.3s ease,
+    --on-accent 0.3s ease,
+    --accent-text 0.3s ease,
+    --sum 0.3s ease,
+    --locked 0.3s ease,
+    --tint 0.3s ease,
+    --highlight 0.3s ease,
+    --panel-border 0.3s ease,
+    --danger 0.3s ease,
+    --on-danger 0.3s ease,
+    --scrim 0.3s ease,
+    --on-accent-soft 0.3s ease,
+    --die-trail 0.3s ease,
+    --die-top 0.3s ease,
+    --die-side 0.3s ease,
+    --die-front 0.3s ease,
+    --die-edge-top 0.3s ease,
+    --die-edge-side 0.3s ease,
+    --die-edge-corner 0.3s ease,
+    --die-corner 0.3s ease,
+    --die-pip 0.3s ease,
+    --icon-tile 0.3s ease,
+    --icon-tile-border 0.3s ease,
+    --icon-small-die 0.3s ease,
+    --icon-small-die-opacity 0.3s ease,
+    --icon-top 0.3s ease,
+    --icon-side 0.3s ease,
+    --icon-front 0.3s ease,
+    --icon-edge-top 0.3s ease,
+    --icon-edge-side 0.3s ease,
+    --icon-edge-corner 0.3s ease,
+    --icon-corner 0.3s ease,
+    --icon-pip 0.3s ease,
+    --rules-tip 0.3s ease,
+    --rules-play-bg 0.3s ease,
+    --rules-play-ink 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  .theme-switch::before,
+  .switch-knob {
+    transition: none;
+  }
+}

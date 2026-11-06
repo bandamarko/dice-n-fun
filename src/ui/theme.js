@@ -24,7 +24,7 @@ export function getTheme() {
 
 export function toggleTheme() {
   const next = getTheme() === "dark" ? "light" : "dark";
-  apply(next);
+  apply(next); // style.css fades the colors
   try {
     localStorage.setItem(THEME_KEY, next);
   } catch {
