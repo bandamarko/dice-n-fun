@@ -615,6 +615,7 @@ h3 {
 /* ---------- Game screen ---------- */
 
 .game-screen {
+  position: relative;
   min-height: 100dvh;
   padding: 12px 12px 16px;
   display: flex;
@@ -647,7 +648,10 @@ h3 {
   text-align: center;
 }
 
-.game-title-small { font-size: 13px; color: var(--muted); }
+.game-title-small {
+  font-size: 13px;
+  color: var(--muted);
+}
 
 .game-title-turn {
   font-family: "Bricolage Grotesque", sans-serif;
@@ -659,9 +663,17 @@ h3 {
   white-space: nowrap;
 }
 
-.game-tools { display: flex; }
-.icon-button:disabled { opacity: 0.35; cursor: default; }
-.undo-icon { width: 22px; height: 22px; }
+.game-tools {
+  display: flex;
+}
+.icon-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.undo-icon {
+  width: 22px;
+  height: 22px;
+}
 
 .game-body {
   flex: 1;
@@ -670,7 +682,10 @@ h3 {
   gap: 10px;
 }
 
-.game-placeholder { text-align: center; color: var(--muted); }
+.game-placeholder {
+  text-align: center;
+  color: var(--muted);
+}
 
 /* ---------- Zonk sheet ---------- */
 
@@ -683,7 +698,9 @@ h3 {
 }
 
 /* 5–8 players: two columns, so the numpad still fits on the screen */
-.zonk-players.is-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.zonk-players.is-compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
 .zonk-player {
   background: var(--card);
@@ -694,7 +711,9 @@ h3 {
   gap: 6px;
 }
 
-.zonk-player.is-current { box-shadow: inset 0 0 0 2px var(--accent); }
+.zonk-player.is-current {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
 
 .zonk-player-top {
   display: flex;
@@ -710,8 +729,12 @@ h3 {
   white-space: nowrap;
 }
 
-.is-current .zonk-player-name { font-weight: 600; }
-.zonk-player-total { font-weight: 700; }
+.is-current .zonk-player-name {
+  font-weight: 600;
+}
+.zonk-player-total {
+  font-weight: 700;
+}
 
 .zonk-bar {
   height: 6px;
@@ -744,7 +767,10 @@ h3 {
   align-items: baseline;
 }
 
-.zonk-turn-label { font-size: 14px; color: var(--muted); }
+.zonk-turn-label {
+  font-size: 14px;
+  color: var(--muted);
+}
 
 .zonk-turn-value {
   display: flex;
@@ -799,8 +825,13 @@ h3 {
   cursor: pointer;
 }
 
-.numpad-key:active { background: var(--sum); }
-.backspace-icon { width: 24px; height: 24px; }
+.numpad-key:active {
+  background: var(--sum);
+}
+.backspace-icon {
+  width: 24px;
+  height: 24px;
+}
 
 .zonk-actions {
   display: grid;
@@ -818,10 +849,23 @@ h3 {
   cursor: pointer;
 }
 
-.zonk-action:disabled { opacity: 0.4; cursor: default; }
-.zonk-action-zonk { background: var(--danger); color: var(--on-danger); }
-.zonk-action-plus { background: var(--sum); color: var(--ink); font-size: 24px; }
-.zonk-action-bank { background: var(--accent); color: var(--on-accent); }
+.zonk-action:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.zonk-action-zonk {
+  background: var(--danger);
+  color: var(--on-danger);
+}
+.zonk-action-plus {
+  background: var(--sum);
+  color: var(--ink);
+  font-size: 24px;
+}
+.zonk-action-bank {
+  background: var(--accent);
+  color: var(--on-accent);
+}
 
 /* ---------- Game menu ---------- */
 
@@ -835,7 +879,10 @@ h3 {
 .menu-panel {
   position: absolute;
   top: 66px;
-  left: max(12px, calc(50% - 240px + 12px)); /* under the logo, also when the app is centered on a wide screen */
+  left: max(
+    12px,
+    calc(50% - 240px + 12px)
+  ); /* under the logo, also when the app is centered on a wide screen */
   width: 290px;
   max-width: calc(100% - 24px);
   background: var(--card);
@@ -894,7 +941,10 @@ h3 {
   justify-content: center;
 }
 
-.menu-icon { width: 20px; height: 20px; }
+.menu-icon {
+  width: 20px;
+  height: 20px;
+}
 
 .menu-item-text {
   flex: 1;
@@ -903,10 +953,22 @@ h3 {
   gap: 1px;
 }
 
-.menu-item-title { font-size: 16px; font-weight: 600; }
-.menu-item-subtitle { font-size: 13px; color: var(--muted); }
-.menu-item-end { color: var(--muted); display: flex; }
-.chevron-icon { width: 18px; height: 18px; }
+.menu-item-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.menu-item-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+.menu-item-end {
+  color: var(--muted);
+  display: flex;
+}
+.chevron-icon {
+  width: 18px;
+  height: 18px;
+}
 
 .menu-divider {
   height: 1px;
@@ -921,8 +983,16 @@ h3 {
   margin-left: -10px;
 }
 
-.menu-rules-title { margin: 0; font-size: 22px; font-weight: 700; }
-.menu-rules-facts { margin: -4px 0 0; font-size: 14px; color: var(--muted); }
+.menu-rules-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+.menu-rules-facts {
+  margin: -4px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
 
 .menu-rules-list {
   margin: 0;
@@ -954,8 +1024,16 @@ h3 {
   gap: 16px;
 }
 
-.end-game { margin: 0; color: var(--muted); text-align: center; }
-.end-title { margin: 0 0 8px; font-size: 32px; text-align: center; }
+.end-game {
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+}
+.end-title {
+  margin: 0 0 8px;
+  font-size: 32px;
+  text-align: center;
+}
 
 .end-ranking {
   margin: 0 0 auto;
@@ -975,8 +1053,13 @@ h3 {
   font-size: 17px;
 }
 
-.end-row:first-child { box-shadow: inset 0 0 0 2px var(--accent); font-weight: 600; }
-.end-total { font-weight: 700; }
+.end-row:first-child {
+  box-shadow: inset 0 0 0 2px var(--accent);
+  font-weight: 600;
+}
+.end-total {
+  font-weight: 700;
+}
 
 /* ---------- Starter spinner ---------- */
 
@@ -1004,7 +1087,11 @@ h3 {
   gap: 16px;
 }
 
-.spinner-title { margin: 0; font-size: 24px; font-weight: 700; }
+.spinner-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
 
 /* Three rows tall; the middle row is the pick. The fades at the top and bottom
    make names appear to roll in and out. */
@@ -1032,7 +1119,12 @@ h3 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(var(--bg), transparent 30%, transparent 70%, var(--bg));
+  background: linear-gradient(
+    var(--bg),
+    transparent 30%,
+    transparent 70%,
+    var(--bg)
+  );
 }
 
 .spinner-reel {
@@ -1055,7 +1147,9 @@ h3 {
   white-space: nowrap;
 }
 
-.spinner-name.is-chosen { color: var(--accent-text); }
+.spinner-name.is-chosen {
+  color: var(--accent-text);
+}
 
 .spinner-result {
   margin: 0;
@@ -1064,11 +1158,22 @@ h3 {
   font-weight: 600;
 }
 
-.spinner-play { width: 100%; }
-.spinner-play[hidden], .spinner-hint[hidden] { display: none; }
-.spinner-hint { margin: 0; font-size: 13px; color: var(--muted); }
+.spinner-play {
+  width: 100%;
+}
+.spinner-play[hidden],
+.spinner-hint[hidden] {
+  display: none;
+}
+.spinner-hint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
 
-.is-revealing .game-title-turn { visibility: hidden; }
+.is-revealing .game-title-turn {
+  visibility: hidden;
+}
 
 /* ---------- Setup ---------- */
 
@@ -1353,6 +1458,424 @@ h3 {
 .dialog-danger {
   background: var(--danger);
   color: var(--on-danger);
+}
+/* ---------- Yamb sheet ---------- */
+
+.yamb-chips {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto; /* 5–8 players scroll sideways instead of squashing */
+  scrollbar-width: none;
+}
+
+.yamb-chip {
+  flex: 1 0 auto;
+  min-width: 96px;
+  height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.yamb-chip.is-current {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+}
+.yamb-chip[aria-pressed="true"]:not(.is-current) {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+.yamb-chip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.yamb-chip-total {
+  font-weight: 700;
+}
+
+.yamb-peek-bar {
+  height: 36px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--highlight);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.yamb-peek-back {
+  color: var(--accent-text);
+}
+
+/* The grid: a label column, then one column per Yamb column. Row height shrinks on
+   short phones so the whole sheet always fits without scrolling. */
+.yamb-grid {
+  --row: clamp(22px, calc((100dvh - 270px) / 17), 36px);
+  display: grid;
+  grid-template-columns: 30px repeat(var(--columns), minmax(0, 1fr));
+  grid-auto-rows: var(--row);
+  gap: 2px;
+}
+
+.yamb-corner {
+  display: block;
+}
+
+.yamb-col-head,
+.yamb-row-head {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+
+.yamb-row-head.is-sum {
+  background: var(--sum);
+}
+.yamb-symbol {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.col-icon {
+  width: 20px;
+  height: 20px;
+}
+.row-icon,
+.die-icon {
+  width: 20px;
+  height: 20px;
+}
+.row-icon-accent {
+  fill: var(--accent-text);
+}
+.row-icon-yamb {
+  fill: var(--accent);
+}
+.die-icon-face {
+  fill: var(--card);
+  stroke: var(--ink);
+}
+.die-icon-pips {
+  fill: var(--ink);
+}
+
+/* Names exist for screen readers and the future desktop layout; phones show only icons */
+.yamb-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.yamb-cell {
+  min-width: 0;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yamb-cell.is-filled {
+  background: var(--card);
+}
+.yamb-cell.is-crossed {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 17px;
+}
+.yamb-cell.is-locked {
+  background: var(--locked);
+}
+.yamb-cell.is-sum {
+  background: var(--sum);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.yamb-cell.is-open {
+  background: var(--card);
+  box-shadow: inset 0 0 0 1.5px var(--accent);
+  cursor: pointer;
+}
+
+.yamb-cell.is-tip {
+  box-shadow: inset 0 0 0 2px var(--accent);
+  color: var(--accent-text);
+}
+.yamb-cell.is-tip .col-icon {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.6;
+}
+
+.yamb-bar {
+  margin-top: auto;
+  min-height: 52px;
+  padding: 6px 16px;
+  border-radius: 14px;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.yamb-bar-hint {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.yamb-bar-total {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.yamb-bar-total-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+.yamb-bar-total-value {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Step 4: the cell being scored, and its row and column labels */
+.yamb-col-head.is-active,
+.yamb-row-head.is-active { background: var(--highlight); }
+
+.yamb-cell.is-selected {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: none;
+}
+
+/* Floating panels: the score input (and the tip notice in step 5) */
+.yamb-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.yamb-panel {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  background: var(--card);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* the arrow pointing at the cell; --arrow-x is set from JS to the cell's center */
+.yamb-panel::before {
+  content: "";
+  position: absolute;
+  left: var(--arrow-x, 24px);
+  width: 14px;
+  height: 14px;
+  background: var(--card);
+  transform: rotate(45deg);
+}
+
+.yamb-panel.is-below::before { top: -8px; border-left: 1px solid var(--panel-border); border-top: 1px solid var(--panel-border); }
+.yamb-panel.is-above::before { bottom: -8px; border-right: 1px solid var(--panel-border); border-bottom: 1px solid var(--panel-border); }
+
+.yamb-panel-head { display: flex; align-items: center; gap: 12px; }
+
+.yamb-panel-icon {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yamb-panel-icon .col-icon { width: 24px; height: 24px; }
+.yamb-panel-names { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.yamb-panel-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 22px; font-weight: 700; }
+.yamb-panel-sub { font-size: 13px; color: var(--muted); }
+
+.yamb-panel-preview {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent-text);
+}
+
+.yamb-panel-body { display: flex; flex-direction: column; gap: 10px; }
+.yamb-choices { display: flex; flex-direction: column; gap: 8px; }
+.yamb-panel-label { font-size: 14px; color: var(--muted); }
+.yamb-panel-note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--body); }
+.yamb-panel-hint { margin: -4px 0 0; font-size: 13px; color: var(--danger); }
+.yamb-panel-hint:empty { display: none; }
+
+.yamb-choice-row { display: grid; gap: 6px; }
+.yamb-choice-row.is-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.yamb-choice-row.is-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.yamb-choice-row.is-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+.yamb-choice {
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.yamb-choice.is-big { height: 58px; font-size: 26px; font-weight: 700; }
+.yamb-choice.is-die .die-icon { width: 30px; height: 30px; }
+.yamb-choice[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+
+.yamb-numpad {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.yamb-key {
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: var(--sum);
+  color: var(--ink);
+  font: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.yamb-panel-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 8px;
+}
+
+.yamb-cross,
+.yamb-cancel,
+.yamb-enter {
+  height: 52px;
+  border-radius: 14px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.yamb-cross { border: 1.5px solid var(--ink); background: none; color: var(--ink); font-size: 22px; }
+.yamb-cancel { border: none; background: var(--bg); color: var(--ink); font-size: 16px; }
+.yamb-enter { border: none; background: var(--accent); color: var(--on-accent); font-size: 17px; }
+.yamb-enter:disabled { opacity: 0.4; cursor: default; }
+
+/* Step 5: the tip notice and the tip line in the bottom bar */
+.yamb-layer.is-dimmed { z-index: 6; overflow: hidden; }
+
+/* The ring around the tip cell; its huge shadow dims everything else */
+.yamb-spotlight {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent), 0 0 0 9999px var(--scrim);
+  pointer-events: none;
+}
+
+.yamb-notice-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+.yamb-notice-row .row-icon,
+.yamb-notice-row .die-icon { width: 28px; height: 28px; }
+.yamb-notice-name { font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; font-weight: 700; }
+.yamb-notice-col { margin-left: auto; font-size: 13px; color: var(--muted); }
+.yamb-notice-text { margin: 0; font-size: 15px; line-height: 1.5; color: var(--body); }
+
+.yamb-bar-tip {
+  min-height: 44px;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.yamb-bar-tip .col-icon { width: 18px; height: 18px; }
+
+/* The entry waiting for "Confirm turn" */
+.yamb-cell.is-pending {
+  background: var(--sum);
+  color: var(--accent-text);
+  box-shadow: inset 0 0 0 2px var(--accent);
+  outline: 2px dashed var(--accent);
+  outline-offset: 1px;
+  cursor: pointer;
+}
+
+.yamb-confirm {
+  height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* ---------- Theme fade ----------

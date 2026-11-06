@@ -1,31 +1,40 @@
 # Dice'n'Roll: design notes
 
 Score tracker for physically thrown dice. Pass-and-play on one device.
-(Repo/package name: dice-n-fun. Display name: Dice'n'Roll.)
+Repo: bandamarko/dice-n-roll. Live at bandamarko.github.io/dice-n-roll/ (when deployed).
 
 ## Platform
+
 - PWA built with Vite, plain HTML/CSS/JS, hosted free on GitHub Pages; also runs on localhost.
 - Works in the browser on Android and iOS; installable (also on desktop via Chrome/Edge).
 - Single-page app: one index.html, JS swaps screens inside <div id="app">.
+- Deploy: GitHub Actions builds with Vite (base "/dice-n-roll/" in vite.config.js)
+  and publishes dist/ to GitHub Pages on every push to main.
 
 ## Structure (src/)
+
 - main.js: wires screens to the router, starts theme and router
+- assets/: every SVG (logo, icons, Yamb column/row/dice icons), imported with ?raw
 - games/: pure game rules, no DOM (index.js registry, zonk.js, yamb.js)
 - state/: game.js (createGame, playMove, getWinners), history.js (undo/redo)
 - storage/: storage.js (save/load JSON in localStorage)
-- ui/: router.js, theme.js, screens, sheets/
+- ui/: router.js, theme.js, themeSwitch.js, dom.js, icons.js, dialog.js,
+  welcome.js, picker.js, setup.js, starterSpinner.js, game.js, gameMenu.js, end.js,
+  sheets/zonk.js, sheets/yamb.js
 - Layers: games/ and state/ never touch the DOM; ui/ uses everything.
 
 ## Game state
+
 - { gameId, players, currentPlayer, sheet, skipped }
 - The sheet shape belongs to each game. Totals are always computed, never stored.
 - Everything is immutable: functions return new objects (spread, map).
 - null = empty cell, 0 = crossed out (shown as "/").
-- The starting player is picked at random.
-- skipped: players skipped by the last move (drives the "skipped" popup).
+- The starting player is picked at random by createGame.
+- skipped: players skipped by the last move (drives the "can't play" popup).
 
 ## Game interface
-- id, name, summary, minPlayers, maxPlayers, dice, defaultOptions
+
+- id, name, summary, rules { extra?, bullets, tip? }, minPlayers, maxPlayers, dice, defaultOptions
 - createSheet(players, options)
 - canEnter(sheet, player, entry): checks everything, never trusts the UI
 - applyEntry(sheet, player, entry) → { sheet, turnEnded }
@@ -35,24 +44,24 @@ Score tracker for physically thrown dice. Pass-and-play on one device.
 - Registry: getGame(id) (Object.hasOwn check), gameList
 
 ## Zonk
-- 1–8 players, 6 dice, default target 5000.
+
+- 1–8 players, 6 dice. Target 3000 / 5000 (default) / 10000 / Custom (1000–100000).
+- Every score is a multiple of 50.
 - Each turn's first set of throws must reach 300 (300 counts) before "+" is used;
   after "+", any amount.
-- "+" when all dice have scored; Bank adds the turn to the total; Zonk ends the
-  turn with 0. Bank is disabled while the amount is under 300 (before "+").
-- Numpad with backspace for entering points.
+- "+" when all dice have scored; Bank adds the turn to the total; Zonk ends the turn with 0.
 - Reaching the target ends the game immediately.
-- Later (options when creating a game): sudden death (others get a last turn),
-  exact target with bust; a tie is decided with one more turn.
+- No confirm step: Bank and Zonk are already deliberate.
 
 ## Yamb
+
 - 2–8 players, 6 dice, 3 throws, one cell per turn.
 - Rows: ones–sixes, (Sum 1), Max, Min, (Difference), Straight, Triple, Full house,
   Poker, Yamb, (Sum 2).
 - Sheet: { grids: [{ column: [13 cells] } per player], pendingTip: row name or null }
-  Columns are named, each holds its 13 scoring rows in order; sums aren't stored.
 
 ### Scoring
+
 - Sum 1 = ones–sixes, +30 if 60 or more.
 - Max / Min = sum of the best 5 dice (5–30).
 - Difference = (Max − Min) × Ones, never below 0, same column.
@@ -64,6 +73,7 @@ Score tracker for physically thrown dice. Pass-and-play on one device.
 - Impossible values are refused (e.g. Full house 59).
 
 ### Columns (in this order)
+
 - Down: top to bottom. Free: any order. Up: bottom to top.
 - Announce: called on the first throw. Any entry in Announce (score or "/") sets
   pendingTip to that row for the next player.
@@ -79,70 +89,117 @@ Score tracker for physically thrown dice. Pass-and-play on one device.
   first throw, 3 throws): players' honour.
 
 ### Turns
-- Tip turn: a notice at turn start ("Tip from <name>: <row>"), pointing at the cell.
+
 - A player with no legal move is skipped with a popup (in practice only the
   starting player, at most once per game, waiting for a tip).
 
 ## Flash Yamb
+
 - Same rules and scoring as Yamb; only Down, Free, Up, Announce, Hand, Tip (Yamb's order).
 - 2–8 players. Its own card; rules add "Tip: try it with 5 dice".
-- Code: createYambVariant({ id, name, summary, columns }) exports yamb and flashYamb.
+- Code: createYambVariant({ id, name, summary, rules, columns }) exports yamb and flashYamb.
 
 ## Undo / redo
+
 - history = { current, undoStack, redoStack }; snapshots by reference (state is immutable).
 - A new move clears redo. pendingTip lives in the sheet, so undo handles tips too.
 
 ## Storage
-- localStorage key "dice-n-fun:current-game", SAVE_VERSION 2.
+
+- localStorage key "dice-n-fun:current-game", SAVE_VERSION 2 (keys kept from the
+  old name so existing saves survive).
 - Saves { version, current, undoStack } after every move; redo isn't saved.
 - Missing, broken or old-version save → start fresh.
+- When a finished game's end screen is left, its save is cleared.
 - Theme stored under "dice-n-fun:theme".
-- When a finished game's end screen is left, its save is cleared; welcome then
-  only shows New game.
-
 
 ## UI
-- Screens: welcome → picker → setup → scoresheet → end screen.
-- The app always starts on welcome (refresh, reopen or killed app alike).
+
+- Screens: welcome → picker → setup → (spinner) → scoresheet → end screen.
+- The app always starts on welcome (refresh, reopen or killed app alike);
   "Continue game" shows when a save exists.
-- Welcome: logo, "Score tracker for real dice", theme switch, Continue game, New game.
-- Picker: one card per game, all the same size. Tap the card to flip it to its
-  rules; a separate Play button starts setup (avoids mis-taps).
-- Setup: keeps typed names when switching games; the player-count check
-  (minPlayers–maxPlayers) only runs when Start is pressed.
-- Scoresheets: no scrolling; icons instead of row/column names on phones.
-  Score input floats next to the selected cell and shows that column's icon.
+- Welcome: sticker logo, "Score tracker for real dice", theme switch, Continue game, New game.
+- Picker: one card per game, all the same height. Tap the card to flip it to its
+  rules (several can be flipped); a separate Play button opens setup. Coming back,
+  all cards are unflipped.
+- Setup: names up to 16 characters, no duplicates; reorder by the grip handle
+  (drag, or arrow keys). Names stay when switching games; the player-count check
+  only runs when Start is pressed. Start saves the game, then opens it.
+- Starter spinner: after Start, names roll through a slot window and stop on the
+  (already random) starting player. Tap skips; no re-spins; skipped for 1 player
+  and on Continue. The header hides the turn name until it closes.
 - Game menu (tap the logo on a scoresheet): Rules, Theme | New game (asks to
   confirm, ends the saved game), Quit to welcome (game stays saved).
-- End screen: winner(s) and ranked totals; optional "Compare sheets" shows each
-  player's finished sheet read-only, switching between players.
+- Popups use one shared dialog; back closes it.
+- End screen (temporary): winner(s) and ranked totals; Done clears the save.
+  Planned: "Compare sheets" to view each player's finished sheet read-only.
+
+### Zonk sheet
+
+- Player rows with totals and progress bars toward the target (two columns for 5–8).
+- "This turn" (with "+ used"), the throw being typed, a numpad, Zonk / + / Bank N.
+- A hint explains why + or Bank is disabled (steps of 50, first throw 300+).
+
+### Yamb sheet
+
+- Player chips at the top (scroll sideways for many players); tap another player's
+  chip to view their sheet read-only ("Back to <name>'s turn", or back button).
+- Grid with icons for rows and columns (names in the HTML, hidden on phones);
+  rows shrink on short phones so the sheet never scrolls.
+- Open cells = what canEnter allows; locked cells are grey; finished columns look the same.
+- Tapping an open cell opens a floating score panel next to it (below the cell in
+  the top half, above it in the bottom half) with the column's icon and a live preview:
+  dice count for Ones–Sixes, numpad for Max/Min, 46/56/66 for Straight, faces for
+  Triple/Poker/Yamb, two face rows for Full house; Maximum shows only its best value.
+  Enter only enables for a legal value.
+- Enter or "/" makes a pending entry (own color, sums and total preview); another
+  cell can replace it; "Confirm turn" in the bottom bar plays it. Pending entries
+  aren't saved.
+- Tip turn: a notice dims the screen except the tip cell ("Tip from <name>: <row>");
+  it shows every time a tip turn is drawn (new turn, undo, redo, Continue); the
+  bottom bar can reopen it.
+  - Undo with a pending entry only erases it (the turn stays); with nothing pending,
+    Undo goes back a real move. Redo is disabled while an entry is pending.
 
 ### Back button
-- Closes an open overlay first (score input, game menu, popup).
-- On a scoresheet with nothing open: "Leave the game? It stays saved." [Leave] [Keep playing].
+
+- Closes an open overlay first (score panel, game menu, popup, peek, spinner).
+- On a scoresheet with nothing open: "Leave the game? It stays saved." [Keep playing] [Leave].
 - Setup → picker → welcome; back on welcome closes the app.
-- The router only adds history entries during a tap (browsers skip ones added
-  without user interaction). Many backs in a row without touching the screen
-  eventually leave the app; the game is saved, so Continue resumes it.
+- The router keeps its own screen stack and only adds history entries during a tap
+  (browsers skip ones added without user interaction); it never removes them.
+  Many backs in a row without touching the screen eventually leave the app;
+  the game is saved, so Continue resumes it.
 
 ## Theme
+
 - Light and dark; default follows the phone, the toggle's last tap wins.
 - CSS variables in style.css, switched by data-theme on <html>; an inline
   script in index.html sets it before the first paint.
+- Switching fades the color variables (@property, 0.3 s) and slides the switch;
+  instant when the phone asks for reduced motion.
+- New theme colors need: a light value, a dark value, an @property line and a transition line.
 - Light: bg #EAF4FB, text #0E2A3D, muted #4A6578, card #FFFFFF, accent #1F6FC2.
 - Dark: bg #0B1824, text #E6F1FA, muted #9DB6CA, card #14273A, accent #4A9EEB.
-- Zonk button red: #C0392B (dark #E0604F).
+- Danger (Zonk button, destructive actions): #C0392B (dark #E0604F).
+- SVG assets carry their light colors as attributes on the element that has the
+  class, so CSS can override them per theme.
 
 ## Branding
+
 - Name: Dice'n'Roll. Icon: 3D rounded die (faces 1, 2, 3 visible) on a blue tile.
 - Logo: sticker version with a dice trail and a yellow sparkle.
 - The app icon doubles as the game-menu button on scoresheets.
 
 ## Later
+
+- Real end screen with "Compare sheets".
+- PWA setup: manifest, service worker, install icons (PNG in public/).
 - Desktop layout: sheet labels shown, side input panel, all sheets visible,
-  keyboard (numbers, Enter, Esc, Ctrl+Z). Code keeps layout in CSS only.
-- Zonk options: sudden death, exact target with bust.
+  keyboard (numbers, Enter, Esc, Ctrl+Z), hover states inside @media (hover: hover).
+  Code keeps layout in CSS only.
+- Zonk options: sudden death (others get a last turn), exact target with bust;
+  a tie is decided with one more turn.
 - Prefill setup with the last game's players.
-- Online / multi-device play.
 - Game history: keep finished games to look back at results and sheets.
-## Open
+- Online / multi-device play.

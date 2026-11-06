@@ -33,6 +33,11 @@ const BEST = Object.fromEntries(ROWS.map((name) => {
   return [name, name === "min" ? Math.min(...values) : Math.max(...values)];
 }));
 
+// The only value the Maximum column accepts for a row (besides "/")
+export function bestValue(rowName) {
+  return BEST[rowName];
+}
+
 // ---------- Column rules ----------
 
 const MIDDLE_UP = ["max", "sixes", "fives", "fours", "threes", "twos", "ones"].map(row);
