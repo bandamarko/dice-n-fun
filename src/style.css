@@ -1,0 +1,67 @@
+/* style.css: colors live here once, as variables. Screens only ever use var(--name). */
+
+:root,
+:root[data-theme="light"] {
+  --bg: #EAF4FB;
+  --ink: #0E2A3D;
+  --muted: #4A6578;
+  --body: #2C4558;
+  --card: #FFFFFF;
+  --accent: #1F6FC2;
+  --on-accent: #FFFFFF;
+  --accent-text: #1F6FC2;
+  --sum: #CFE6F7;
+  --locked: #D8E6F1;
+  --tint: #F2F8FD;
+  --highlight: #CFE6F7;
+  --panel-border: #9CC3E6;
+  --danger: #C0392B;
+  --on-danger: #FFFFFF;
+  --scrim: rgba(14, 42, 61, 0.45);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0B1824;
+  --ink: #E6F1FA;
+  --muted: #9DB6CA;
+  --body: #C9DBE9;
+  --card: #14273A;
+  --accent: #4A9EEB;
+  --on-accent: #06192B;
+  --accent-text: #6FAEE8;
+  --sum: #1C3550;
+  --locked: #0F2030;
+  --tint: #1E3A57;
+  --highlight: #24456A;
+  --panel-border: #3A5A7A;
+  --danger: #E0604F;
+  --on-danger: #1A0705;
+  --scrim: rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", Inter, sans-serif;
+}
+
+/* Phone width for now; on a wide screen the app sits centered.
+   The real desktop layout will be added here later with a media query. */
+#app {
+  max-width: 480px;
+  min-height: 100dvh;
+  margin: 0 auto;
+}

@@ -1,12 +1,31 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dice'n'Fun</title>
-  </head>
-  <body>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dice'n'Roll</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Inter:wght@400;500;600&display=swap" />
+  <script>
+    // Set the theme before the first paint, so dark mode doesn't flash white on load.
+    // (main.js is a module and runs after the page is drawn, which would be too late.)
+    (function () {
+      var theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      try {
+        var saved = localStorage.getItem("dice-n-fun:theme");
+        if (saved === "light" || saved === "dark") theme = saved;
+      } catch (e) { }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
