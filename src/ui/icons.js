@@ -43,7 +43,9 @@ import die_3Svg from "../assets/die-3.svg?raw";
 import die_4Svg from "../assets/die-4.svg?raw";
 import die_5Svg from "../assets/die-5.svg?raw";
 import die_6Svg from "../assets/die-6.svg?raw";
+import trophySvg from "../assets/trophy.svg?raw";
 
+export const TROPHY = trophySvg;
 export const LOGO_DIE = logoSvg;
 export const BOLT = boltSvg;
 export const FLIP = flipSvg;

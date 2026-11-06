@@ -1014,11 +1014,29 @@ h3 {
   font-weight: 600;
 }
 
-/* ---------- End screen (temporary) ---------- */
+/* ---------- End screen ---------- */
+
+:root,
+:root[data-theme="light"] {
+  --gold: #FFC24B;
+  --silver: #C9D3DD;
+  --bronze: #E3A869;
+  --on-medal: #0E2A3D;
+  --bar: #5B9BD9;
+  --bar-track: #D8E6F1;
+  --divider: #E3EEF7;
+}
+
+:root[data-theme="dark"] {
+  --on-medal: #0B1824;
+  --bar: #6FAEE8;
+  --bar-track: #1E3A57;
+  --divider: #24456A;
+}
 
 .end-screen {
   min-height: 100dvh;
-  padding: 72px 24px 40px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1026,39 +1044,142 @@ h3 {
 
 .end-game {
   margin: 0;
+  font-size: 14px;
   color: var(--muted);
   text-align: center;
 }
-.end-title {
-  margin: 0 0 8px;
-  font-size: 32px;
+
+/* The trophy card, with two faint circles in the corners */
+.end-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 20px 24px;
+  border-radius: 24px;
+  background: var(--accent);
+  color: var(--on-accent);
   text-align: center;
 }
 
+.end-card::before,
+.end-card::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--on-accent) 8%, transparent);
+}
+.end-card::before { right: -30px; top: -30px; width: 140px; height: 140px; }
+.end-card::after { left: -40px; bottom: -50px; width: 160px; height: 160px; }
+
+.end-trophy {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--on-accent) 14%, transparent);
+  color: var(--gold);
+}
+.end-trophy svg { width: 48px; height: 48px; }
+
+.end-title { margin: 0; font-size: 34px; }
+
+.end-score {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.end-line { font-size: 14px; color: var(--on-accent-soft); }
+
+/* The ranking */
 .end-ranking {
-  margin: 0 0 auto;
-  padding: 0;
+  margin: 0;
+  padding: 6px 16px;
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  border-radius: 20px;
+  background: var(--card);
 }
 
 .end-row {
   display: flex;
-  justify-content: space-between;
-  background: var(--card);
-  border-radius: 14px;
-  padding: 14px 16px;
-  font-size: 17px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+.end-row + .end-row { border-top: 1px solid var(--divider); }
+
+.end-rank {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-medal);
+  background: var(--bg);
+}
+.rank-1 { background: var(--gold); }
+.rank-2 { background: var(--silver); }
+.rank-3 { background: var(--bronze); }
+.rank-4 { color: var(--ink); }
+
+.end-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.end-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.end-name { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.end-right { display: flex; gap: 8px; align-items: baseline; flex: none; }
+.end-behind { font-size: 12px; color: var(--muted); }
+.end-total { font-weight: 700; }
+.is-winner .end-name { font-weight: 700; }
+
+.end-bar { height: 6px; border-radius: 999px; background: var(--bar-track); overflow: hidden; }
+.end-bar-fill { height: 100%; border-radius: 999px; background: var(--bar); }
+.is-winner .end-bar-fill { background: var(--accent); }
+
+/* Buttons at the bottom */
+.end-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+.end-actions-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; }
+
+.end-done {
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  height: 44px;
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
 }
 
-.end-row:first-child {
-  box-shadow: inset 0 0 0 2px var(--accent);
-  font-weight: 600;
+/* Victory effect: the trophy pops in, then confetti (ui/confetti.js) */
+.is-celebrating .end-trophy {
+  animation: trophy-pop 600ms cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
 }
-.end-total {
-  font-weight: 700;
+
+@keyframes trophy-pop {
+  0%   { transform: scale(0) rotate(-20deg); }
+  60%  { transform: scale(1.15) rotate(8deg); }
+  80%  { transform: scale(0.95) rotate(-3deg); }
+  100% { transform: none; }
+}
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* taps go through to the buttons */
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-celebrating .end-trophy { animation: none; }
 }
 
 /* ---------- Starter spinner ---------- */
@@ -1171,9 +1292,17 @@ h3 {
   color: var(--muted);
 }
 
-.is-revealing .game-title-turn {
-  visibility: hidden;
+/* While the spinner is up, nothing on the sheet may give away who starts */
+.is-revealing .game-title-turn { visibility: hidden; }
+
+.is-revealing .yamb-chip.is-current {
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 400;
 }
+
+.is-revealing .zonk-player.is-current { box-shadow: none; }
+.is-revealing .zonk-player.is-current .zonk-player-name { font-weight: 400; }
 
 /* ---------- Setup ---------- */
 

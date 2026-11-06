@@ -16,6 +16,13 @@ const ZONK_TARGETS = [3000, 5000, 10000];
 let names = [];                 // shared by every game's setup while the app is open
 const optionsByGame = {};       // e.g. { zonk: { target: 5000 } }, also kept while the app is open
 
+// "Play again" from the end screen: start the next setup with the same players
+// (same order) and the same options, e.g. the same Zonk target.
+export function prepareSetup(gameId, players, options) {
+  names = [...players];
+  if (options) optionsByGame[gameId] = { ...options };
+}
+
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
