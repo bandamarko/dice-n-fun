@@ -2,41 +2,41 @@
 
 :root,
 :root[data-theme="light"] {
-  --bg: #EAF4FB;
-  --ink: #0E2A3D;
-  --muted: #4A6578;
-  --body: #2C4558;
-  --card: #FFFFFF;
-  --accent: #1F6FC2;
-  --on-accent: #FFFFFF;
-  --accent-text: #1F6FC2;
-  --sum: #CFE6F7;
-  --locked: #D8E6F1;
-  --tint: #F2F8FD;
-  --highlight: #CFE6F7;
-  --panel-border: #9CC3E6;
-  --danger: #C0392B;
-  --on-danger: #FFFFFF;
+  --bg: #eaf4fb;
+  --ink: #0e2a3d;
+  --muted: #4a6578;
+  --body: #2c4558;
+  --card: #ffffff;
+  --accent: #1f6fc2;
+  --on-accent: #ffffff;
+  --accent-text: #1f6fc2;
+  --sum: #cfe6f7;
+  --locked: #d8e6f1;
+  --tint: #f2f8fd;
+  --highlight: #cfe6f7;
+  --panel-border: #9cc3e6;
+  --danger: #c0392b;
+  --on-danger: #ffffff;
   --scrim: rgba(14, 42, 61, 0.45);
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #0B1824;
-  --ink: #E6F1FA;
-  --muted: #9DB6CA;
-  --body: #C9DBE9;
-  --card: #14273A;
-  --accent: #4A9EEB;
-  --on-accent: #06192B;
-  --accent-text: #6FAEE8;
-  --sum: #1C3550;
-  --locked: #0F2030;
-  --tint: #1E3A57;
-  --highlight: #24456A;
-  --panel-border: #3A5A7A;
-  --danger: #E0604F;
-  --on-danger: #1A0705;
+  --bg: #0b1824;
+  --ink: #e6f1fa;
+  --muted: #9db6ca;
+  --body: #c9dbe9;
+  --card: #14273a;
+  --accent: #4a9eeb;
+  --on-accent: #06192b;
+  --accent-text: #6faee8;
+  --sum: #1c3550;
+  --locked: #0f2030;
+  --tint: #1e3a57;
+  --highlight: #24456a;
+  --panel-border: #3a5a7a;
+  --danger: #e0604f;
+  --on-danger: #1a0705;
   --scrim: rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -54,7 +54,9 @@ body {
   font-family: Inter, system-ui, sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Bricolage Grotesque", Inter, sans-serif;
 }
 
@@ -161,51 +163,77 @@ h1, h2, h3 {
   color: var(--ink);
 }
 
-.logo-n { color: var(--accent-text); }
-.logo-die { width: 65px; height: 56px; margin: 0 -5px 8px -26px; }
-.die-trail { stroke: var(--die-trail); }
-.die-top { fill: var(--die-top); }
-.die-side { fill: var(--die-side); }
-.die-front { fill: var(--die-front); }
-.die-edge-top { stroke: var(--die-edge-top); }
-.die-edge-side { stroke: var(--die-edge-side); }
-.die-edge-corner { stroke: var(--die-edge-corner); }
-.die-corner { fill: var(--die-corner); stroke: var(--die-corner); }
-.die-pip { fill: var(--die-pip); }
-.die-sparkle { fill: #FFC24B; }
+.logo-n {
+  color: var(--accent-text);
+}
+.logo-die {
+  width: 65px;
+  height: 56px;
+  margin: 0 -5px 8px -26px;
+}
+.die-trail {
+  stroke: var(--die-trail);
+}
+.die-top {
+  fill: var(--die-top);
+}
+.die-side {
+  fill: var(--die-side);
+}
+.die-front {
+  fill: var(--die-front);
+}
+.die-edge-top {
+  stroke: var(--die-edge-top);
+}
+.die-edge-side {
+  stroke: var(--die-edge-side);
+}
+.die-edge-corner {
+  stroke: var(--die-edge-corner);
+}
+.die-corner {
+  fill: var(--die-corner);
+  stroke: var(--die-corner);
+}
+.die-pip {
+  fill: var(--die-pip);
+}
+.die-sparkle {
+  fill: #ffc24b;
+}
 
 :root,
 :root[data-theme="light"] {
-  --on-accent-soft: #DCEBFA;
-  --die-trail: #9CC3E6;
-  --die-top: #5B9BD9;
-  --die-side: #155A9E;
-  --die-front: #1F6FC2;
-  --die-edge-top: #3D85CD;
-  --die-edge-side: #1A64B0;
-  --die-edge-corner: #387ABB;
-  --die-corner: #3077BE;
-  --die-pip: #FFFFFF;
+  --on-accent-soft: #dcebfa;
+  --die-trail: #9cc3e6;
+  --die-top: #5b9bd9;
+  --die-side: #155a9e;
+  --die-front: #1f6fc2;
+  --die-edge-top: #3d85cd;
+  --die-edge-side: #1a64b0;
+  --die-edge-corner: #387abb;
+  --die-corner: #3077be;
+  --die-pip: #ffffff;
 }
 
 :root[data-theme="dark"] {
-  --on-accent-soft: #0E3254;
-  --die-trail: #3A5A7A;
-  --die-top: #9CC8F0;
-  --die-side: #2F78BC;
-  --die-front: #4A9EEB;
-  --die-edge-top: #73B3ED;
-  --die-edge-side: #3C8BD3;
-  --die-edge-corner: #65A0D6;
-  --die-corner: #5C9FDD;
-  --die-pip: #0B1824;
+  --on-accent-soft: #0e3254;
+  --die-trail: #3a5a7a;
+  --die-top: #9cc8f0;
+  --die-side: #2f78bc;
+  --die-front: #4a9eeb;
+  --die-edge-top: #73b3ed;
+  --die-edge-side: #3c8bd3;
+  --die-edge-corner: #65a0d6;
+  --die-corner: #5c9fdd;
+  --die-pip: #0b1824;
 }
 
 /* Day/night switch: one accent circle (::before) slides between the sun and the moon */
 .theme-switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  flex: none;
   width: 76px;
   height: 40px;
   padding: 0 4px;
@@ -218,6 +246,12 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
+.welcome .theme-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 .theme-switch::before {
   content: "";
   position: absolute;
@@ -228,7 +262,9 @@ h1, h2, h3 {
   border-radius: 50%;
   background: var(--accent);
   transform: translate(0, -50%);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 :root[data-theme="dark"] .theme-switch::before {
@@ -258,67 +294,112 @@ h1, h2, h3 {
 
 /* ---------- App icon (headers, game menu) ---------- */
 
-.app-icon { width: 40px; height: 40px; display: block; }
-.icon-tile { fill: var(--icon-tile); stroke: var(--icon-tile-border); }
-.icon-small-die { fill: var(--icon-small-die); fill-opacity: var(--icon-small-die-opacity); }
-.icon-top { fill: var(--icon-top); }
-.icon-side { fill: var(--icon-side); }
-.icon-front { fill: var(--icon-front); }
-.icon-edge-top { stroke: var(--icon-edge-top); }
-.icon-edge-side { stroke: var(--icon-edge-side); }
-.icon-edge-corner { stroke: var(--icon-edge-corner); }
-.icon-corner { fill: var(--icon-corner); stroke: var(--icon-corner); }
-.icon-pip { fill: var(--icon-pip); }
+.app-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.icon-tile {
+  fill: var(--icon-tile);
+  stroke: var(--icon-tile-border);
+}
+.icon-small-die {
+  fill: var(--icon-small-die);
+  fill-opacity: var(--icon-small-die-opacity);
+}
+.icon-top {
+  fill: var(--icon-top);
+}
+.icon-side {
+  fill: var(--icon-side);
+}
+.icon-front {
+  fill: var(--icon-front);
+}
+.icon-edge-top {
+  stroke: var(--icon-edge-top);
+}
+.icon-edge-side {
+  stroke: var(--icon-edge-side);
+}
+.icon-edge-corner {
+  stroke: var(--icon-edge-corner);
+}
+.icon-corner {
+  fill: var(--icon-corner);
+  stroke: var(--icon-corner);
+}
+.icon-pip {
+  fill: var(--icon-pip);
+}
 
 :root,
 :root[data-theme="light"] {
-  --icon-tile: #1F6FC2;
-  --icon-tile-border: #1F6FC2;
-  --icon-small-die: #FFFFFF;
+  --icon-tile: #1f6fc2;
+  --icon-tile-border: #1f6fc2;
+  --icon-small-die: #ffffff;
   --icon-small-die-opacity: 0.75;
-  --icon-top: #CFE6F7;
-  --icon-side: #9CC3E6;
-  --icon-front: #FFFFFF;
-  --icon-edge-top: #E7F2FB;
-  --icon-edge-side: #CDE1F2;
-  --icon-edge-corner: #B5D4EE;
-  --icon-corner: #CEE3F4;
-  --icon-pip: #1F6FC2;
-  --rules-tip: #185FA5;
-  --rules-play-bg: #FFFFFF;
-  --rules-play-ink: #1F6FC2;
+  --icon-top: #cfe6f7;
+  --icon-side: #9cc3e6;
+  --icon-front: #ffffff;
+  --icon-edge-top: #e7f2fb;
+  --icon-edge-side: #cde1f2;
+  --icon-edge-corner: #b5d4ee;
+  --icon-corner: #cee3f4;
+  --icon-pip: #1f6fc2;
+  --rules-tip: #185fa5;
+  --rules-play-bg: #ffffff;
+  --rules-play-ink: #1f6fc2;
 }
 
 :root[data-theme="dark"] {
-  --icon-tile: #14273A;
-  --icon-tile-border: #2A4560;
-  --icon-small-die: #2F78BC;
+  --icon-tile: #14273a;
+  --icon-tile-border: #2a4560;
+  --icon-small-die: #2f78bc;
   --icon-small-die-opacity: 1;
-  --icon-top: #9CC8F0;
-  --icon-side: #2F78BC;
-  --icon-front: #4A9EEB;
-  --icon-edge-top: #73B3ED;
-  --icon-edge-side: #3C8BD3;
-  --icon-edge-corner: #65A0D6;
-  --icon-corner: #5C9FDD;
-  --icon-pip: #0B1824;
-  --rules-tip: #3A8DDB;
-  --rules-play-bg: #06192B;
-  --rules-play-ink: #E6F1FA;
+  --icon-top: #9cc8f0;
+  --icon-side: #2f78bc;
+  --icon-front: #4a9eeb;
+  --icon-edge-top: #73b3ed;
+  --icon-edge-side: #3c8bd3;
+  --icon-edge-corner: #65a0d6;
+  --icon-corner: #5c9fdd;
+  --icon-pip: #0b1824;
+  --rules-tip: #3a8ddb;
+  --rules-play-bg: #06192b;
+  --rules-play-ink: #e6f1fa;
 }
 
 /* Small line icons */
-.flip-icon, .back-icon {
+.flip-icon,
+.back-icon {
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.flip-icon { width: 14px; height: 14px; }
-.back-icon { width: 24px; height: 24px; }
-.play-icon { width: 14px; height: 14px; fill: currentColor; }
-.bolt-icon { width: 0.85em; height: 0.85em; fill: #FFC24B; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.flip-icon {
+  width: 14px;
+  height: 14px;
+}
+.back-icon {
+  width: 24px;
+  height: 24px;
+}
+.play-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.bolt-icon {
+  width: 0.85em;
+  height: 0.85em;
+  fill: #ffc24b;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
 
 /* ---------- Screen header ---------- */
 
@@ -334,7 +415,9 @@ h1, h2, h3 {
   font-weight: 700;
 }
 
-.header-logo { margin-left: auto; }
+.header-logo {
+  margin-left: auto;
+}
 
 .icon-button {
   width: 44px;
@@ -364,7 +447,10 @@ h1, h2, h3 {
   gap: 16px;
 }
 
-.game-card { perspective: 1200px; display: grid; }
+.game-card {
+  perspective: 1200px;
+  display: grid;
+}
 
 /* Both faces sit in the same grid cell, so the card is as tall as its taller face:
    front and back are always the same size */
@@ -375,7 +461,9 @@ h1, h2, h3 {
   transform-style: preserve-3d;
 }
 
-.is-flipped .game-card-inner { transform: rotateY(180deg); }
+.is-flipped .game-card-inner {
+  transform: rotateY(180deg);
+}
 
 .game-card-face {
   grid-area: 1 / 1;
@@ -387,7 +475,9 @@ h1, h2, h3 {
   backface-visibility: hidden;
 }
 
-.game-card-front { background: var(--card); }
+.game-card-front {
+  background: var(--card);
+}
 
 .game-card-back {
   transform: rotateY(180deg);
@@ -397,7 +487,9 @@ h1, h2, h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .game-card-inner { transition: none; }
+  .game-card-inner {
+    transition: none;
+  }
 }
 
 .card-flip {
@@ -414,7 +506,8 @@ h1, h2, h3 {
   gap: 8px;
 }
 
-.card-title, .card-rules-title {
+.card-title,
+.card-rules-title {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -424,7 +517,10 @@ h1, h2, h3 {
   line-height: 1.15;
 }
 
-.card-rules-title { font-size: 22px; gap: 6px; }
+.card-rules-title {
+  font-size: 22px;
+  gap: 6px;
+}
 
 .card-summary {
   font-size: 15px;
@@ -440,8 +536,13 @@ h1, h2, h3 {
   color: var(--muted);
 }
 
-.game-card-front .card-hint { margin-top: auto; padding-bottom: 6px; }
-.game-card-back .card-hint { color: var(--on-accent-soft); }
+.game-card-front .card-hint {
+  margin-top: auto;
+  padding-bottom: 6px;
+}
+.game-card-back .card-hint {
+  color: var(--on-accent-soft);
+}
 
 .card-rules-head {
   display: flex;
@@ -449,7 +550,10 @@ h1, h2, h3 {
   align-items: center;
 }
 
-.card-facts { font-size: 13px; color: var(--on-accent-soft); }
+.card-facts {
+  font-size: 13px;
+  color: var(--on-accent-soft);
+}
 
 .card-rules {
   margin: 0;
@@ -465,9 +569,14 @@ h1, h2, h3 {
   gap: 10px;
 }
 
-.game-card-back .card-bottom { justify-content: flex-end; }
+.game-card-back .card-bottom {
+  justify-content: flex-end;
+}
 
-.card-players { font-size: 14px; color: var(--muted); }
+.card-players {
+  font-size: 14px;
+  color: var(--muted);
+}
 
 .card-play {
   height: 44px;
@@ -503,52 +612,959 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
+/* ---------- Game screen ---------- */
+
+.game-screen {
+  min-height: 100dvh;
+  padding: 12px 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.game-menu-button {
+  width: 44px;
+  height: 44px;
+  padding: 2px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  cursor: pointer;
+}
+
+.game-title {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.game-title-small { font-size: 13px; color: var(--muted); }
+
+.game-title-turn {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.game-tools { display: flex; }
+.icon-button:disabled { opacity: 0.35; cursor: default; }
+.undo-icon { width: 22px; height: 22px; }
+
+.game-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.game-placeholder { text-align: center; color: var(--muted); }
+
+/* ---------- Zonk sheet ---------- */
+
+.zonk-players {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+/* 5–8 players: two columns, so the numpad still fits on the screen */
+.zonk-players.is-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.zonk-player {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zonk-player.is-current { box-shadow: inset 0 0 0 2px var(--accent); }
+
+.zonk-player-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.zonk-player-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.is-current .zonk-player-name { font-weight: 600; }
+.zonk-player-total { font-weight: 700; }
+
+.zonk-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--locked);
+  overflow: hidden;
+}
+
+.zonk-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.zonk-turn {
+  margin-top: auto;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.zonk-turn-line,
+.zonk-throw-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.zonk-turn-label { font-size: 14px; color: var(--muted); }
+
+.zonk-turn-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.zonk-plus-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-text);
+  background: var(--sum);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.zonk-throw-value {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--accent-text);
+  line-height: 1.1;
+}
+
+.zonk-hint {
+  margin: 0;
+  min-height: 18px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.numpad-key {
+  height: 54px;
+  border: none;
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  font-size: 22px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.numpad-key:active { background: var(--sum); }
+.backspace-icon { width: 24px; height: 24px; }
+
+.zonk-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 8px;
+}
+
+.zonk-action {
+  height: 56px;
+  border: none;
+  border-radius: 16px;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.zonk-action:disabled { opacity: 0.4; cursor: default; }
+.zonk-action-zonk { background: var(--danger); color: var(--on-danger); }
+.zonk-action-plus { background: var(--sum); color: var(--ink); font-size: 24px; }
+.zonk-action-bank { background: var(--accent); color: var(--on-accent); }
+
+/* ---------- Game menu ---------- */
+
+.menu-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: var(--scrim);
+}
+
+.menu-panel {
+  position: absolute;
+  top: 66px;
+  left: max(12px, calc(50% - 240px + 12px)); /* under the logo, also when the app is centered on a wide screen */
+  width: 290px;
+  max-width: calc(100% - 24px);
+  background: var(--card);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* the little arrow pointing at the logo */
+.menu-panel::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 18px;
+  width: 14px;
+  height: 14px;
+  background: var(--card);
+  border-left: 1px solid var(--panel-border);
+  border-top: 1px solid var(--panel-border);
+  transform: rotate(45deg);
+}
+
+.menu-panel-rules {
+  width: auto;
+  right: max(12px, calc(50% - 240px + 12px));
+  padding: 8px 16px 16px;
+  gap: 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 14px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-item-icon {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 11px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon { width: 20px; height: 20px; }
+
+.menu-item-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.menu-item-title { font-size: 16px; font-weight: 600; }
+.menu-item-subtitle { font-size: 13px; color: var(--muted); }
+.menu-item-end { color: var(--muted); display: flex; }
+.chevron-icon { width: 18px; height: 18px; }
+
+.menu-divider {
+  height: 1px;
+  margin: 4px 10px;
+  background: var(--locked);
+}
+
+.menu-rules-head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: -10px;
+}
+
+.menu-rules-title { margin: 0; font-size: 22px; font-weight: 700; }
+.menu-rules-facts { margin: -4px 0 0; font-size: 14px; color: var(--muted); }
+
+.menu-rules-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.menu-rules-tip {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- End screen (temporary) ---------- */
+
+.end-screen {
+  min-height: 100dvh;
+  padding: 72px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.end-game { margin: 0; color: var(--muted); text-align: center; }
+.end-title { margin: 0 0 8px; font-size: 32px; text-align: center; }
+
+.end-ranking {
+  margin: 0 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.end-row {
+  display: flex;
+  justify-content: space-between;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 17px;
+}
+
+.end-row:first-child { box-shadow: inset 0 0 0 2px var(--accent); font-weight: 600; }
+.end-total { font-weight: 700; }
+
+/* ---------- Starter spinner ---------- */
+
+.spinner-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: var(--scrim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.spinner {
+  width: 100%;
+  max-width: 340px;
+  background: var(--card);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.spinner-title { margin: 0; font-size: 24px; font-weight: 700; }
+
+/* Three rows tall; the middle row is the pick. The fades at the top and bottom
+   make names appear to roll in and out. */
+.spinner-window {
+  position: relative;
+  width: 100%;
+  height: 192px; /* 3 × 64px rows */
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.spinner-window::before {
+  content: "";
+  position: absolute;
+  inset: 64px 8px;
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.spinner-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(var(--bg), transparent 30%, transparent 70%, var(--bg));
+}
+
+.spinner-reel {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  will-change: transform;
+}
+
+.spinner-name {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.spinner-name.is-chosen { color: var(--accent-text); }
+
+.spinner-result {
+  margin: 0;
+  min-height: 28px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.spinner-play { width: 100%; }
+.spinner-play[hidden], .spinner-hint[hidden] { display: none; }
+.spinner-hint { margin: 0; font-size: 13px; color: var(--muted); }
+
+.is-revealing .game-title-turn { visibility: hidden; }
+
+/* ---------- Setup ---------- */
+
+.setup {
+  min-height: 100dvh;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.setup-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.setup-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.setup-heading {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.setup-count {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.name-form {
+  display: flex;
+  gap: 8px;
+}
+
+.name-input,
+.custom-target {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--panel-border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px; /* 16px or more stops iPhones from zooming in on focus */
+}
+
+.name-input:focus,
+.custom-target:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.name-add {
+  height: 48px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.name-add:disabled,
+.name-input:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.name-hint {
+  margin: -4px 0 0;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.name-hint:empty {
+  display: none;
+}
+
+.name-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 48px;
+  padding: 0 4px;
+  border-radius: 12px;
+  background: var(--bg);
+  transition: transform 0.15s ease;
+}
+
+.name-row.is-dragging {
+  position: relative;
+  z-index: 1;
+  transition: none; /* follows the finger directly */
+  background: var(--card);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.18),
+    0 0 0 1.5px var(--accent);
+}
+
+.name-grip {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: none;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none; /* a touch on the handle drags instead of scrolling */
+}
+
+.is-dragging .name-grip {
+  cursor: grabbing;
+  color: var(--accent-text);
+}
+
+.grip-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.name-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name-remove {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: none;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.close-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.chip-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.chip {
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.custom-target {
+  flex: none;
+} /* it sits in a column, so it must not use the row input's flex: 1 */
+.custom-target[hidden] {
+  display: none;
+}
+
+.setup-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setup-note {
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- Dialog ---------- */
+
+.dialog-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: var(--scrim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 360px;
+  background: var(--card);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dialog-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.dialog-message {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+.dialog-actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.dialog-button {
+  height: 52px;
+  border: none;
+  border-radius: 14px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dialog-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.dialog-secondary {
+  background: var(--bg);
+  color: var(--ink);
+}
+.dialog-danger {
+  background: var(--danger);
+  color: var(--on-danger);
+}
+
 /* ---------- Theme fade ----------
    Instead of animating every element, we animate the color variables themselves.
    @property tells the browser each variable is a color (or a number), which makes it
    animatable. Elements just use var(...) as always, so they all follow one smooth fade,
    and inherited text can't lag behind or flash. Browsers without @property simply switch instantly. */
-@property --bg { syntax: "<color>"; inherits: true; initial-value: #EAF4FB; }
-@property --ink { syntax: "<color>"; inherits: true; initial-value: #0E2A3D; }
-@property --muted { syntax: "<color>"; inherits: true; initial-value: #4A6578; }
-@property --body { syntax: "<color>"; inherits: true; initial-value: #2C4558; }
-@property --card { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
-@property --accent { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
-@property --on-accent { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
-@property --accent-text { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
-@property --sum { syntax: "<color>"; inherits: true; initial-value: #CFE6F7; }
-@property --locked { syntax: "<color>"; inherits: true; initial-value: #D8E6F1; }
-@property --tint { syntax: "<color>"; inherits: true; initial-value: #F2F8FD; }
-@property --highlight { syntax: "<color>"; inherits: true; initial-value: #CFE6F7; }
-@property --panel-border { syntax: "<color>"; inherits: true; initial-value: #9CC3E6; }
-@property --danger { syntax: "<color>"; inherits: true; initial-value: #C0392B; }
-@property --on-danger { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
-@property --scrim { syntax: "<color>"; inherits: true; initial-value: rgba(14, 42, 61, 0.45); }
-@property --on-accent-soft { syntax: "<color>"; inherits: true; initial-value: #DCEBFA; }
-@property --die-trail { syntax: "<color>"; inherits: true; initial-value: #9CC3E6; }
-@property --die-top { syntax: "<color>"; inherits: true; initial-value: #5B9BD9; }
-@property --die-side { syntax: "<color>"; inherits: true; initial-value: #155A9E; }
-@property --die-front { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
-@property --die-edge-top { syntax: "<color>"; inherits: true; initial-value: #3D85CD; }
-@property --die-edge-side { syntax: "<color>"; inherits: true; initial-value: #1A64B0; }
-@property --die-edge-corner { syntax: "<color>"; inherits: true; initial-value: #387ABB; }
-@property --die-corner { syntax: "<color>"; inherits: true; initial-value: #3077BE; }
-@property --die-pip { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
-@property --icon-tile { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
-@property --icon-tile-border { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
-@property --icon-small-die { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
-@property --icon-top { syntax: "<color>"; inherits: true; initial-value: #CFE6F7; }
-@property --icon-side { syntax: "<color>"; inherits: true; initial-value: #9CC3E6; }
-@property --icon-front { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
-@property --icon-edge-top { syntax: "<color>"; inherits: true; initial-value: #E7F2FB; }
-@property --icon-edge-side { syntax: "<color>"; inherits: true; initial-value: #CDE1F2; }
-@property --icon-edge-corner { syntax: "<color>"; inherits: true; initial-value: #B5D4EE; }
-@property --icon-corner { syntax: "<color>"; inherits: true; initial-value: #CEE3F4; }
-@property --icon-pip { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
-@property --rules-tip { syntax: "<color>"; inherits: true; initial-value: #185FA5; }
-@property --rules-play-bg { syntax: "<color>"; inherits: true; initial-value: #FFFFFF; }
-@property --rules-play-ink { syntax: "<color>"; inherits: true; initial-value: #1F6FC2; }
-@property --icon-small-die-opacity { syntax: "<number>"; inherits: true; initial-value: 0.75; }
+@property --bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #eaf4fb;
+}
+@property --ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0e2a3d;
+}
+@property --muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #4a6578;
+}
+@property --body {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2c4558;
+}
+@property --card {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f6fc2;
+}
+@property --on-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --accent-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f6fc2;
+}
+@property --sum {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #cfe6f7;
+}
+@property --locked {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d8e6f1;
+}
+@property --tint {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f2f8fd;
+}
+@property --highlight {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #cfe6f7;
+}
+@property --panel-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #9cc3e6;
+}
+@property --danger {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #c0392b;
+}
+@property --on-danger {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --scrim {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(14, 42, 61, 0.45);
+}
+@property --on-accent-soft {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #dcebfa;
+}
+@property --die-trail {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #9cc3e6;
+}
+@property --die-top {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5b9bd9;
+}
+@property --die-side {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #155a9e;
+}
+@property --die-front {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f6fc2;
+}
+@property --die-edge-top {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #3d85cd;
+}
+@property --die-edge-side {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1a64b0;
+}
+@property --die-edge-corner {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #387abb;
+}
+@property --die-corner {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #3077be;
+}
+@property --die-pip {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --icon-tile {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f6fc2;
+}
+@property --icon-tile-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f6fc2;
+}
+@property --icon-small-die {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --icon-top {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #cfe6f7;
+}
+@property --icon-side {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #9cc3e6;
+}
+@property --icon-front {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --icon-edge-top {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e7f2fb;
+}
+@property --icon-edge-side {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #cde1f2;
+}
+@property --icon-edge-corner {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #b5d4ee;
+}
+@property --icon-corner {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #cee3f4;
+}
+@property --icon-pip {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f6fc2;
+}
+@property --rules-tip {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #185fa5;
+}
+@property --rules-play-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --rules-play-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f6fc2;
+}
+@property --icon-small-die-opacity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.75;
+}
 
 :root {
   transition:

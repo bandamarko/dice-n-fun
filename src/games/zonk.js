@@ -1,5 +1,6 @@
 // games/zonk.js
 const ENTRY_THRESHOLD = 300;
+const POINT_STEP = 50; // every Zonk score is a multiple of 50
 const defaultOptions = { target: 5000 };
 
 function createSheet(players, options = {}) {
@@ -14,6 +15,7 @@ function canEnter(sheet, player, entry) {
   if (entry.type === "zonk") return true;
   if (entry.type !== "plus" && entry.type !== "bank") return false;
   if (!Number.isInteger(entry.points) || entry.points <= 0) return false;
+  if (entry.points % POINT_STEP !== 0) return false;
   if (!sheet.turn.plusUsed) return entry.points >= ENTRY_THRESHOLD;
   return true;
 }
@@ -71,6 +73,8 @@ export const zonk = {
   minPlayers: 1,
   maxPlayers: 8,
   dice: 6,
+  entryThreshold: ENTRY_THRESHOLD,
+  pointStep: POINT_STEP,
   defaultOptions,
   createSheet,
   canEnter,

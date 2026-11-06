@@ -4,15 +4,9 @@
 import { getGame } from "../games/index.js";
 import { loadGame } from "../storage/storage.js";
 import { go } from "./router.js";
-import { getTheme, toggleTheme } from "./theme.js";
-import { LOGO_DIE, SUN, MOON } from "./icons.js";
-
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text !== undefined) node.textContent = text; // textContent: player names can never inject HTML
-  return node;
-}
+import { el } from "./dom.js";
+import { themeSwitchButton } from "./themeSwitch.js";
+import { LOGO_DIE } from "./icons.js";
 
 // Sticker logo: "Dice'n'R" + the die (from assets) + "ll"
 function logo() {
@@ -27,24 +21,6 @@ function logo() {
   text.append(el("span", "", "ll"));
   title.append(text);
   return title;
-}
-
-function themeSwitch() {
-  const button = el("button", "theme-switch");
-  button.type = "button";
-  const sun = el("span", "switch-knob switch-sun");
-  sun.innerHTML = SUN;
-  const moon = el("span", "switch-knob switch-moon");
-  moon.innerHTML = MOON;
-  button.append(sun, moon);
-
-  const label = () => (getTheme() === "dark" ? "Switch to light mode" : "Switch to dark mode");
-  button.setAttribute("aria-label", label());
-  button.addEventListener("click", () => {
-    toggleTheme();
-    button.setAttribute("aria-label", label());
-  });
-  return button;
 }
 
 // "Yamb · Marko, Ana, Luka · Ana's turn", or null if there is no usable save
@@ -71,7 +47,7 @@ export function showWelcome(root) {
     const resume = el("button", "button-primary welcome-continue");
     resume.type = "button";
     resume.append(el("span", "welcome-continue-title", "Continue game"), el("span", "welcome-continue-line", line));
-    resume.addEventListener("click", () => go("game", { resume: true }, { fresh: true }));
+    resume.addEventListener("click", () => go("game", {}, { fresh: true }));
     actions.append(resume);
   }
   const fresh = el("button", "button-outline", "New game");
@@ -79,6 +55,6 @@ export function showWelcome(root) {
   fresh.addEventListener("click", () => go("picker"));
   actions.append(fresh);
 
-  screen.append(themeSwitch(), hero, actions);
+  screen.append(themeSwitchButton(), hero, actions);
   root.append(screen);
 }

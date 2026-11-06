@@ -38,7 +38,7 @@ export function playMove(state, entry) {
 }
 
 export function getWinners(state) {
-    const totals = getGame(state.gameId).computeTotals(state.sheet);
-    const best = Math.max(...totals);
-    return state.players.filter((_, i) => totals[i] === best);
+  const totals = getGame(state.gameId).computeTotals(state.sheet);
+  const best = Math.max(...totals);
+  return state.players.filter((_, i) => totals[i] === best);
 }
